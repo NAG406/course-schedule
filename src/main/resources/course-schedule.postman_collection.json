@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "afc8f543-5766-4f1b-89b2-842abaa3dded",
+		"name": "course-schedule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CourseByCourseAndTopic",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"courseName\": \"Computer Fundamentals\",\n        \"instructor\": \"Roopa rani\",\n        \"courseTopic\": {\n            \"scheduledDate\": \"2022-08-28\",\n            \"topicName\": \"Introduction\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course?course=Computer Fundamentals&topic=Introduction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course"
+					],
+					"query": [
+						{
+							"key": "course",
+							"value": "Computer Fundamentals"
+						},
+						{
+							"key": "topic",
+							"value": "Introduction"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All-Courses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"courseName\": \"Computer Fundamentals\",\n        \"instructor\": \"Roopa rani\",\n        \"courseTopic\": {\n            \"scheduledDate\": \"2022-08-28\",\n            \"topicName\": \"Introduction\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-courses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-01\",\n        \"topicName\": \"Introduction to Computers\"\n    },\n     {\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-02\",\n        \"topicName\": \"Functions-Designing Structured Programs\"\n    },\n     {\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-03\",\n        \"topicName\": \"Pointers – Introduction (Basic Concepts)\"\n    },\n     {\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-04\",\n        \"topicName\": \"Enumerated, Structure, and Union Types\"\n    }\n    , {\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-05\",\n        \"topicName\": \"Searching and Sorting\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/save-courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"save-courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "course-reschedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"id\": 13,\n        \"courseName\": \"Computer Programming\",\n        \"instructor\": \"Samson\",\n        \"scheduledDate\": \"2022-08-03\",\n        \"topicName\": \"Pointers – Introduction (Basic Concepts)\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/topic-reschedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"topic-reschedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-course-schedule",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"courseName\": \"Computer Fundamentals\",\n        \"instructor\": \"Roopa rani\",\n        \"courseTopic\": {\n            \"scheduledDate\": \"2022-08-28\",\n            \"topicName\": \"Introduction\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/course/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"course",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
